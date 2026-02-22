@@ -1,5 +1,6 @@
 <script setup>
-import { computed, onMounted, onUnmounted } from 'vue'
+import { computed } from 'vue'
+import { useCartStore } from '../stores/cartStore'
 
 const props = defineProps({
   product: {
@@ -8,7 +9,7 @@ const props = defineProps({
   },
 })
 
-const emit = defineEmits(['buy'])
+const cartStore = useCartStore()
 
 const discountedPrice = computed(() => {
   if (props.product.discount > 0) {
@@ -18,11 +19,8 @@ const discountedPrice = computed(() => {
 })
 
 function buyNow() {
-  emit('buy', props.product.id)
+  cartStore.addToCart(props.product)
 }
-
-onMounted(() => console.log(`ProductDetails mounted — ${props.product.name}`))
-onUnmounted(() => console.log(`ProductDetails unmounted — ${props.product.name}`))
 </script>
 
 <template>

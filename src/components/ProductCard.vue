@@ -1,6 +1,6 @@
 <script setup>
-import { onMounted, onUnmounted } from 'vue'
 import { useRouter } from 'vue-router'
+import { useCartStore } from '../stores/cartStore'
 
 const props = defineProps({
   product: {
@@ -10,13 +10,11 @@ const props = defineProps({
 })
 
 const router = useRouter()
+const cartStore = useCartStore()
 
 function goToProduct() {
   router.push({ name: 'product', params: { id: props.product.id } })
 }
-
-onMounted(() => console.log(`ProductCard mounted — ${props.product.name}`))
-onUnmounted(() => console.log(`ProductCard unmounted — ${props.product.name}`))
 </script>
 
 <template>
@@ -40,7 +38,14 @@ onUnmounted(() => console.log(`ProductCard unmounted — ${props.product.name}`)
           -{{ product.discount }}%
         </span>
       </div>
-      <div class="card-actions justify-end mt-3">
+      <div class="card-actions justify-end mt-3 gap-2">
+        <button
+          class="btn btn-secondary btn-sm"
+          :disabled="product.stock === 0"
+          @click="cartStore.addToCart(product)"
+        >
+          {{ product.stock === 0 ? 'Out of Stock' : 'Add to Cart' }}
+        </button>
         <button class="btn btn-primary btn-sm" @click="goToProduct">View Product</button>
       </div>
     </div>

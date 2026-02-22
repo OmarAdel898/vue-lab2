@@ -1,0 +1,61 @@
+{
+  "products": [
+    {
+      "id": "1",
+      "name": "Cozy Sneakers",
+      "description": "High-quality sneakers that go with everything you wear.",
+      "image": "https://static.nike.com/a/images/t_web_pw_592_v2/f_auto/u_126ab356-44d8-4a06-89b4-fcdcc8df0245,c_scale,fl_relative,w_1.0,h_1.0,fl_layer_apply/2f6fa4a3-ed08-4285-80bf-e0e141f38e88/AIR+JORDAN+3+RTR+LSC+INDIGO+SP.png",
+      "badge": "NEW",
+      "price": 120,
+      "discount": 20,
+      "stock": 8,
+      "tags": [
+        "Fashion",
+        "Casual",
+        "Sport"
+      ]
+    },
+    {
+      "id": "2",
+      "name": "Running Shoes",
+      "description": "Built for speed and comfort on any terrain.",
+      "image": "https://static.nike.com/a/images/t_web_pw_592_v2/f_auto/u_9ddf04c7-2a9a-4d76-add1-d15af8f0263d,c_scale,fl_relative,w_1.0,h_1.0,fl_layer_apply/793a591b-9dc7-45b8-941a-f62ca1c11f19/WMNS+NIKE+AIR+MAX+MUSE.png",
+      "badge": "",
+      "price": 90,
+      "discount": 10,
+      "stock": 0,
+      "tags": [
+        "Sport",
+        "Running"
+      ]
+    },
+    {
+      "id": "3",
+      "name": "Casual Boots",
+      "description": "Rugged boots for everyday adventures.",
+      "image": "https://static.nike.com/a/images/t_web_pw_592_v2/f_auto/u_9ddf04c7-2a9a-4d76-add1-d15af8f0263d,c_scale,fl_relative,w_1.0,h_1.0,fl_layer_apply/17183aa1-c1b4-48f8-bf8d-145534f1c7d3/W+NIKE+ZOOM+VOMERO+5.png",
+      "badge": "SALE",
+      "price": 150,
+      "discount": 0,
+      "stock": 4,
+      "tags": [
+        "Casual",
+        "Winter"
+      ]
+    },
+    {
+      "id": "4",
+      "name": "Flip Flops",
+      "description": "Light and breezy for sunny days.",
+      "image": "https://static.nike.com/a/images/t_web_pw_592_v2/f_auto/u_9ddf04c7-2a9a-4d76-add1-d15af8f0263d,c_scale,fl_relative,w_1.0,h_1.0,fl_layer_apply/44d43e29-509e-4e58-8b52-fe945d188593/NIKE+S.T.+DYNAMITE+%28GS%29.png",
+      "badge": "",
+      "price": 30,
+      "discount": 50,
+      "stock": 20,
+      "tags": [
+        "Summer",
+        "Casual"
+      ]
+    }
+  ]
+}

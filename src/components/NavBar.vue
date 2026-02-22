@@ -1,9 +1,8 @@
 <script setup>
-import { onMounted, onUnmounted } from 'vue'
 import { RouterLink } from 'vue-router'
+import { useCartStore } from '../stores/cartStore'
 
-onMounted(() => console.log('NavBar mounted'))
-onUnmounted(() => console.log('NavBar unmounted'))
+const cartStore = useCartStore()
 </script>
 
 <template>
@@ -13,7 +12,12 @@ onUnmounted(() => console.log('NavBar unmounted'))
     </div>
     <div class="flex gap-2">
       <RouterLink to="/" class="btn btn-ghost">Home</RouterLink>
-      <RouterLink to="/product/1" class="btn btn-ghost">Products</RouterLink>
+      <RouterLink to="/cart" class="btn btn-ghost gap-1">
+        Cart
+        <span v-if="cartStore.totalItems > 0" class="badge badge-primary badge-sm">
+          {{ cartStore.totalItems }}
+        </span>
+      </RouterLink>
       <RouterLink to="/about" class="btn btn-ghost">About</RouterLink>
     </div>
   </nav>

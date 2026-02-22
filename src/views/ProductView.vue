@@ -1,40 +1,32 @@
 <script setup>
-import { computed, onMounted, onUnmounted } from 'vue'
+import { computed, onMounted } from 'vue'
 import { useRoute } from 'vue-router'
 import ProductDetails from '../components/ProductDetails.vue'
 import ProductCard from '../components/ProductCard.vue'
-
-const props = defineProps({
-  products: {
-    type: Array,
-    required: true,
-  },
-})
-
-const emit = defineEmits(['buy'])
+import { useProductStore } from '../stores/productStore'
 
 const route = useRoute()
+const productStore = useProductStore()
 
-const currentProduct = computed(() =>
-  props.products.find((p) => p.id === Number(route.params.id)),
-)
+onMounted(() => {
+  if (productStore.products.length === 0) {
+    productStore.fetchProducts()
+  }
+})
+
+const currentProduct = computed(() => {
+  return productStore.products.find((p) => String(p.id) === String(route.params.id))
+})
 
 const relatedProducts = computed(() =>
-  props.products.filter((p) => p.id !== Number(route.params.id)),
+  productStore.products.filter((p) => String(p.id) !== String(route.params.id)),
 )
-
-function handleBuy(productId) {
-  emit('buy', productId)
-}
-
-onMounted(() => console.log(`ProductView mounted for ID: ${route.params.id}`))
-onUnmounted(() => console.log('ProductView unmounted'))
 </script>
 
 <template>
   <div>
     <div v-if="currentProduct">
-      <ProductDetails :product="currentProduct" @buy="handleBuy" />
+      <ProductDetails :product="currentProduct" />
 
       <section class="mt-12">
         <h2 class="text-2xl font-bold mb-6">Related Products</h2>
